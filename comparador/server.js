@@ -5,7 +5,7 @@ const { processarRotaEConsumo } = require('./businessRules');
 const { listarVeiculos } = require('./services/vehicleData');
 
 const app = express();
-const PORT = 3000;
+const PORT = 3030;
 
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.json());
