@@ -3,47 +3,60 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Comparador de Rotas: EV vs Combustão</title>
+    <title>Comparador EV vs Combustão</title>
     <link rel="stylesheet" href="index.css">
 </head>
 <body>
     <div class="container">
-        <h1>⚡ EV vs ⛽ Combustão</h1>
+        <h1>⚡ Comparador EV vs ⛽ Combustão</h1>
         <p>Compare o custo de viagem entre um carro elétrico e um a combustão.</p>
 
         <div class="form-group">
-            <label for="origem">Ponto de Partida</label>
-            <input type="text" id="origem" placeholder="Ex: São Paulo, SP">
+            <label for="distanciaKm">Distância (km)</label>
+            <input type="number" id="distanciaKm" placeholder="Ex: 350" min="1">
         </div>
 
         <div class="form-group">
-            <label for="destino">Destino</label>
-            <input type="text" id="destino" placeholder="Ex: Rio de Janeiro, RJ">
+            <label for="modeloEletrico">🔋 Carro Elétrico</label>
+            <select id="modeloEletrico">
+                <option value="">Carregando veículos...</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="modeloCombustao">⛽ Carro a Combustão</label>
+            <select id="modeloCombustao">
+                <option value="">Carregando veículos...</option>
+            </select>
         </div>
 
         <button onclick="calcularRota()">Comparar Consumo</button>
 
         <!-- Resultado (começa escondido) -->
         <div id="resultado" class="hidden">
-            <h2>Distância: <span id="distancia">--</span> km</h2>
+            <h2 class="resultado-titulo">📏 Distância: <span id="distancia">--</span> km</h2>
 
             <div class="cards">
                 <div class="card eletrico">
+                    <div class="card-icon">⚡</div>
                     <h3 id="el-nome">--</h3>
+                    <p id="el-rendimento" class="small">--</p>
                     <p id="el-gasto" class="small">--</p>
-                    <p><strong>R$ <span id="el-custo">--</span></strong></p>
+                    <p class="custo-total"><span id="el-custo">--</span></p>
                 </div>
 
                 <div class="card combustao">
+                    <div class="card-icon">⛽</div>
                     <h3 id="comb-nome">--</h3>
+                    <p id="comb-rendimento" class="small">--</p>
                     <p id="comb-gasto" class="small">--</p>
-                    <p><strong>R$ <span id="comb-custo">--</span></strong></p>
+                    <p class="custo-total"><span id="comb-custo">--</span></p>
                 </div>
             </div>
 
             <div class="conclusao">
                 <p>🏆 Mais barato: <strong id="vencedor">--</strong></p>
-                <p>Economia de R$ <strong id="diferenca">--</strong></p>
+                <p>Economia de <strong id="diferenca">--</strong></p>
             </div>
         </div>
     </div>
